@@ -63,7 +63,7 @@ public class Main {
         out.writeUTF(a);
 
         System.out.println("Inicializando a leitura");
-        byte[] buffer = new byte[1024];
+        byte[] buffer = new byte[255];
 
         while (true) {
 
@@ -80,7 +80,7 @@ public class Main {
             ColetaDados coletaTemp = new ColetaDados(controllerBD);
             coletaTemp.setSensorIdSensor(daoSensor.obter(1));
             System.out.println("size: "+valorTemp.length());
-            coletaTemp.setDadoColeta(new String(valorTemp).substring(0, 40));
+            coletaTemp.setDadoColeta(new String(valorTemp));
             
             //inserindo no banco
             daoColetor.inserir(coletaTemp);
@@ -88,7 +88,7 @@ public class Main {
 
             ColetaDados coletaLumi = new ColetaDados(controllerBD);
             coletaLumi.setSensorIdSensor(daoSensor.obter(2));
-            coletaLumi.setDadoColeta(new String(valorLumi).substring(0,40));
+            coletaLumi.setDadoColeta(new String(valorLumi));
             
             //inserindo no banco
             daoColetor.inserir(coletaLumi);
